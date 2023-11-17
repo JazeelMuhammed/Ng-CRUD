@@ -1,0 +1,42 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "products": [
+    {
+      "name": "",
+      "description": "",
+      "price": "",
+      "imageUrl": "",
+      "id": 2
+    },
+    {
+      "name": "H&M Floral Shirt",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "price": 100,
+      "imageUrl": "",
+      "id": 4
+    },
+    {
+      "name": "Nike Air Force",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "price": 119,
+      "imageUrl": "",
+      "id": 5
+    }
+  ]
+}

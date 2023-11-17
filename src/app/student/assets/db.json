@@ -1,0 +1,106 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "student": [
+    {
+      "id": 1,
+      "firstName": "xaaa",
+      "lastName": "asasa",
+      "dob": "2023-11-01",
+      "email": "ddsd@g.in",
+      "address": "adassa",
+      "district": "Kollam",
+      "subjects": [
+        "Malayalam"
+      ]
+    },
+    {
+      "id": 3,
+      "firstName": "aaa",
+      "lastName": "bbb",
+      "dob": "2023-11-15",
+      "email": "zaas@g.in",
+      "address": "qwerty",
+      "district": "Kasargod",
+      "subjects": [
+        "English",
+        "Malayalam",
+        "Science",
+        "Maths"
+      ]
+    }
+  ],
+  "district": [
+    {
+      "id": 1,
+      "name": "Kasargod"
+    },
+    {
+      "id": 2,
+      "name": "Kannur"
+    },
+    {
+      "id": 3,
+      "name": "Wayanad"
+    },
+    {
+      "id": 4,
+      "name": "Kozhikode"
+    },
+    {
+      "id": 5,
+      "name": "Malappuram"
+    },
+    {
+      "id": 6,
+      "name": "Palakkad"
+    },
+    {
+      "id": 7,
+      "name": "Thrissur"
+    },
+    {
+      "id": 8,
+      "name": "Ernakulam"
+    },
+    {
+      "id": 9,
+      "name": "Alappuzha"
+    },
+    {
+      "id": 10,
+      "name": "Idukki"
+    },
+    {
+      "id": 11,
+      "name": "Kottayam"
+    },
+    {
+      "id": 12,
+      "name": "Pathanamthitta"
+    },
+    {
+      "id": 13,
+      "name": "Kollam"
+    },
+    {
+      "id": 14,
+      "name": "Trivandrum"
+    }
+  ]
+}

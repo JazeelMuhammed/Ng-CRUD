@@ -1,0 +1,32 @@
+<section class="section-products">
+
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="header">
+                    <h3>Featured Product</h3>
+                    <h2>Popular Products</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Single Product -->
+            <div class="col-md-6 col-lg-4 col-sm-12 my-sm-2" *ngFor="let product of productList; let i=index;">
+                <div class="card">
+                    <div class="text-center">
+                        <img class="card-img-top" style="width: 250px; height: 250px;" src="https://www.jcrew.com/s7-img-facade/G9920_EG4398?$pdp_enlarge$" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <div class="details">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="text-dark">$<b>{{ product.price }}</b></p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-primary text-white" (click)="getProductDetails(product.id)">Go somewhere</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,25 @@
+
+<p class="text-white bg-success p-2" *ngIf="deleted">{{ deleteMsg }}</p>
+<div class="container">
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of productList; let i=index;">
+            <th scope="row">{{ product.id }}</th>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td><button class="btn btn-sm btn-warning" (click)="editProductNavigate(product.id)">Edit</button></td>
+            <td><button class="btn btn-sm btn-danger" (click)="onDeleteProduct(product.id)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+</div>

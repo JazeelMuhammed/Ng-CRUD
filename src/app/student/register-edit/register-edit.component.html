@@ -1,0 +1,177 @@
+<section class="h-100 bg-light">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="text-end">
+                    <button class="btn btn-dark btn-md" routerLink="/home">Home <i class="fa-solid fa-house"></i></button>
+                </div>
+                <div class="card card-registration my-4">
+                    <div class="row g-0">
+                        <div class="col-xl-5 d-none d-xl-block">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                                alt="Sample photo" class="img-fluid"
+                                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+                        </div>
+                        <div class="col-xl-7">
+                            <div class="form-heading p-3 text-center">
+                                <h2 class="text-danger">Student Registration Form</h2>
+                            </div>
+                            <form [formGroup]="studentForm" (ngSubmit)="submitFormData()">
+                                <div class="card-body p-md-5 text-black">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <input type="hidden" name="id" formControlName="id">
+                                            <div class="form-outline">
+                                                <label class="form-label" for="firstName">First Name</label>
+                                                <input type="text" id="firstName" name="firstName"
+                                                    class="form-control form-control-lg" formControlName="firstName" />
+                                                <small class="text-danger"
+                                                    *ngIf="studentForm.get('firstName')?.hasError('required') && isSubmitted">*{{
+                                                    requiredValidatorText }}</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <label class="form-label" for="lastName">Last name</label>
+                                                <input type="text" id="lastName" name="lastName"
+                                                    class="form-control form-control-lg" formControlName="lastName" />
+                                                <small class="text-danger"
+                                                    *ngIf="studentForm.get('lastName')?.hasError('required') && isSubmitted">*{{
+                                                    requiredValidatorText }}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="dob">DOB</label>
+                                            <input type="date" id="dob" name="dob" class="form-control form-control-lg"
+                                                formControlName="dob" />
+                                            <small class="text-danger"
+                                                *ngIf="studentForm.get('dob')?.hasError('required') && isSubmitted">*{{
+                                                requiredValidatorText }}</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <label class="form-label" for="email">E mail</label>
+                                            <input type="email" id="email" name="email"
+                                                class="form-control form-control-lg" formControlName="email" />
+                                            <small class="text-danger" *ngIf="(studentForm.get('email')?.touched && studentForm.get('email')?.hasError('emailAlreadyExists')) || (isSubmitted && studentForm.get('email')?.hasError('emailAlreadyExists'))">
+                                                *This email is already taken. Please choose another one.
+                                            </small>     
+                                            <small class="text-danger"
+                                                *ngIf="studentForm.get('email')?.hasError('required') && isSubmitted">*{{
+                                                requiredValidatorText }}</small>
+                                            <small class="text-danger"
+                                                *ngIf="studentForm.get('email')?.hasError('email')">*{{ emailValidator
+                                                }}</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="address">Address</label>
+                                    <textarea class="form-control" name="address" id="address" rows="3"
+                                        formControlName="address"></textarea>
+                                    <small class="text-danger"
+                                        *ngIf="studentForm.get('address')?.hasError('required') && isSubmitted">*{{
+                                        requiredValidatorText }}</small>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <div class="col-md-6 col-lg-12 mb-4">
+                                        <label for="district" class="form-label">District:</label>
+                                        <select id="district" class="form-control" name="district"
+                                            formControlName="district">
+                                            <option
+                                            [value]="null"
+                                            [attr.disabled]="true"
+                                            [attr.selected]="true"
+                                          >
+                                            Select District
+                                          </option>                                            
+                                          <option *ngFor="let district of districtList">{{ district.name }}</option>
+                                        </select>
+                                        <small
+                                            class="text-danger"
+                                            *ngIf="
+                                            studentForm.get('district')?.invalid &&
+                                            (studentForm.get('district')?.touched ||
+                                                studentForm.get('district')?.dirty ||
+                                                isSubmitted)
+                                            ">
+                                            *Please select any district
+                                        </small>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                      <div class="form-group">
+                                        <div class="mb-3">
+                                          <label class="form-label">
+                                            <span class="star"></span>Select Subjects:
+                                          </label>
+                                          <div class="box">
+                                            <ng-container *ngFor="let subject of subjectList">
+                                              <div class="form-check-inline">
+                                                <label class="form-check-label" for="{{ subject }}">
+                                                  <input
+                                                    type="checkbox"
+                                                    value="{{ subject }}"
+                                                    id="{{ subject }}"
+                                                    (change)="handleChange($event)"
+                                                    [checked]="isChecked(subject)"
+                                                  />
+                                                  {{ subject }}
+                                                </label>
+                                              </div>
+                                            </ng-container>
+                                          </div>
+                                          <small
+                                            class="text-danger"
+                                            *ngIf="
+                                              studentForm.get('subjects')?.invalid &&
+                                              (studentForm.get('subjects')?.touched ||
+                                                studentForm.get('subjects')?.dirty ||
+                                                isSubmitted)
+                                            "
+                                          >
+                                            *Please select at least 1 subject
+                                          </small>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <!-- <div class="form-group row">
+                                    <small class="text-danger"
+                                           *ngIf="studentForm.get('subjects')?.hasError('required') && isSubmitted">*Must select at least one</small>
+                                    <label for="">Subjects: </label>
+                                    <div *ngFor="let subject of subjectsFormArray.controls; let i=index;">
+                                      <label for="checkbox">
+                                        <input type="checkbox" (change)="onChangeSubject($event)" class="form-check-inline" name="subject" [value]="subjectList[i]" id="checkbox"
+                                               [checked]="subject.value" />
+                                        {{ subjectList[i] }}
+                                      </label>
+                                    </div>
+                                  </div> -->
+                                    
+                                <!-- Buttons -->
+                                <div class="d-flex justify-content-center pt-5">
+                                    <button type="button" class="btn btn-light btn-lg"
+                                    (click)="resetSubmissionForm()">Reset all</button>
+                                    <button type="submit" class="btn btn-warning btn-lg ms-2">{{ studentId ? "Update" : "Submit" }}</button>
+                                </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>

@@ -1,0 +1,72 @@
+<div class="container p-3">
+    <form class="mt-4" #employeeForm="ngForm" (ngSubmit)="onSubmitEmpForm(employeeForm)">
+        <h2>{{ empFormData.id ? 'Edit Employee' : 'Add Employee' }}</h2>
+        <div class="form-row row">
+            <div class="col-md-6 mb-3">
+                <label for="validationServer01">First name</label>
+                <input type="text" class="form-control is-valid" id="validationServer01" placeholder="First name" name="firstName" [(ngModel)]="empFormData.firstName">
+                <div class="valid-feedback">
+                Looks good!
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="validationServer02">Last name</label>
+                <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" name="lastName" [(ngModel)]="empFormData.lastName">
+                <div class="valid-feedback">
+                Looks good!
+                </div>
+            </div>
+        </div>
+    
+        <div class="form-row row">
+            <div class="col-md-6 mb-3">
+                <label for="validationServer03">Email</label>
+                <input type="email" class="form-control is-invalid" id="validationServer03" placeholder="Email" name="email" [(ngModel)]="empFormData.email">
+                <div class="invalid-feedback">
+                Please provide a valid email.
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="validationServer04">Phone</label>
+                <input type="number" class="form-control is-invalid" id="validationServer04" placeholder="State" name="phone" [(ngModel)]="empFormData.phone">
+                <div class="invalid-feedback">
+                Please provide a valid phone number.
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-row row">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="english" name="english" id="english" [(ngModel)]="languages['english']">
+                <label class="form-check-label" for="english">
+                English
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="malayalam" name="malayalam" id="malayalam" [(ngModel)]="languages['malayalam']">
+                <label class="form-check-label" for="malayalam">
+                Malayalam
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="hindi" name="hindi" id="hindi" [(ngModel)]="languages['hindi']">
+                <label class="form-check-label" for="hindi">
+                Hindi
+                </label>
+            </div>
+        </div>
+
+        <!-- <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" name="agreeBox" formControlName="agreeBox">
+                <label class="form-check-label" for="invalidCheck3">
+                Agree to terms and conditions
+                </label>
+                <div class="invalid-feedback">
+                You must agree before submitting.
+                </div>
+            </div>
+        </div> -->
+        <button class="btn btn-primary" type="submit">Submit form</button>
+    </form>
+</div>

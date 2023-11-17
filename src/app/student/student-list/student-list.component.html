@@ -1,0 +1,45 @@
+
+<div class="p-sm-1 p-md-2 p-lg-4 mx-lg-5">
+    <div class="head">
+      <h2 class="mt-4 mb-3">Student Details</h2>
+      <div class="addbutton">
+        <button (click)="addStudentNavigator()" class="add-btn">
+          Add student
+        </button>
+      </div>
+    </div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+            <th scope="col">S.No</th>
+            <th scope="col">First Name</th>
+            <th scope="col" class="hide-on-small-screen">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">District</th>
+            <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of studentList; let i=index;">
+              <th scope="row">{{ i+1 }}</th>
+              <td>{{ student.firstName }}</td>
+              <td class="hide-on-small-screen">{{ student.lastName }}</td>
+              <!-- <td>{{ student.dob | date:"dd:MM:yyyy" }}</td> -->
+              <td>{{ student.email }}</td>
+              <!-- <td class="wrap">{{ student.address }}</td> -->
+              <td>{{ student.district }}</td>
+              <!-- <td>{{ student.subjects }}</td> -->
+              <td class="d-flex gap-2">
+                  <button class="edit-btn rounded" (click)="getStudentDetailsNavigator(student.id)">
+                      <i class="fa-regular fa-eye fa-regular py-1" style="color: rgb(255, 255, 255);"></i>
+                  <!-- <i class="fa-sharp fa-solid fa-pen fa-lg" style="color: darkblue;"></i> -->
+                  </button>
+                  <button class="delete-btn rounded bg-danger ms-2" (click)="onDeleteStudent(student.id)">
+                  <i class="fa-solid fa-trash fa-regular py-1 px-0" style="color: white;"></i></button>
+                  <button class="delete-btn rounded bg-success ms-2" (click)="editNavigator(student.id)">
+                    <i class="fa-solid fa-pencil" style="color: #ffffff;"></i></button>
+              </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>

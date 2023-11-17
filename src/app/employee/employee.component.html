@@ -1,0 +1,81 @@
+<nav class="navbar navbar-light">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1 text-white">Angular CRUD </span>
+      <button class="addBtn" (click)="onAddEmployee()">Submit</button>
+      <!-- <button class="addBtn" (click)="onAddEmployeeTwo()">Submit</button> -->
+    </div>
+</nav>
+
+<section class="intro py-3">
+    <div class="bg-image h-100">
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-dark table-borderless mb-0">
+                      <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Language</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let emp of employeeList; let i=index;">
+                            <th scope="row">{{ emp.id }}</th>
+                            <td>{{ emp.firstName }}</td>
+                            <td>{{ emp.lastName }}</td>
+                            <td>{{ emp.email }}</td>
+                            <td>{{ emp.phone }}</td>
+                            <td>{{ emp.languages }}</td>
+                            <td>
+                                <button class="btn btn-sm btn-danger me-1" (click)="onDeleteEmployee(emp.id)">Delete</button>
+                                <button class="btn btn-sm btn-warning" (click)="updateEmployeeNavigatorTwo(emp.id)">Edit</button>
+                            </td>
+                         </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- <table class="table table-hover">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of employeeList; let i=index;">
+           <th scope="row">{{ emp.id }}</th>
+           <td>{{ emp.firstName }}</td>
+           <td>{{ emp.lastName }}</td>
+           <td>{{ emp.email }}</td>
+           <td>{{ emp.phone }}</td>
+           <td>
+                <button class="btn btn-sm btn-danger me-1" (click)="onDeleteEmployee(emp.id)">Delete</button>
+                <button class="btn btn-sm btn-warning" (click)="updateEmployeeNavigator(emp.id)">Edit</button>
+           </td>
+           
+        </tr>
+      </tbody>
+  </table> -->

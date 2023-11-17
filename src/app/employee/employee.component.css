@@ -1,0 +1,38 @@
+.addBtn {
+    background-color: rgb(32, 148, 148);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    float: right;
+    transition: .3s ease;
+}
+.addBtn:hover {
+  background-color: rgb(7, 128, 128);
+}
+.navbar {
+    background-color: darkslateblue;
+}
+.intro {
+  height: 100%;
+}
+
+table td,
+table th {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+thead th,
+tbody th {
+  color: #fff;
+}
+
+tbody td {
+  font-weight: 500;
+  color: rgba(255,255,255,.65);
+}
+
+.card {
+  border-radius: .5rem;
+}
